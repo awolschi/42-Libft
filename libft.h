@@ -6,7 +6,7 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:14:38 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/13 18:16:33 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/10/13 19:20:47 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
+void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 char				*ft_strchr(char *s, int c);
 int					ft_strlen(const char *str);

@@ -6,7 +6,7 @@
 #    By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 17:21:44 by awolschi          #+#    #+#              #
-#    Updated: 2024/10/13 18:23:13 by awolschi         ###   ########.fr        #
+#    Updated: 2024/10/13 19:21:09 by awolschi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS =	ft_bzero.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
+		ft_memchr.c \
 		ft_memset.c \
 		ft_strchr.c \
 		ft_strlen.c \
