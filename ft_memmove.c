@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 18:27:16 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/14 16:09:48 by awolschi         ###   ########.fr       */
+/*   Created: 2024/10/14 18:21:08 by awolschi          #+#    #+#             */
+/*   Updated: 2024/10/15 20:05:50 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	const unsigned char	*str;
-	unsigned char		uc;
-	size_t				i;
+	char		*cdst;
+	const char	*ccsrc;
+	size_t		i;
 
-	str = (unsigned char *)s;
-	uc = (unsigned char)c;
+	cdst = (char *)dst;
+	ccsrc = (const char *)src;
 	i = 0;
-	while (i < n)
+	if (cdst == ccsrc)
+		return (dst);
+	if (cdst > ccsrc)
+		while (len-- > 0)
+			cdst[len] = ccsrc[len];
+	else
 	{
-		if (str[i] == uc)
+		i = 0;
+		while (i < len)
 		{
-			return ((void *)&str[i]);
+			cdst[i] = ccsrc[i];
+			i++;
 		}
-		i++;
 	}
-	return (NULL);
+	return (dst);
 }
