@@ -6,7 +6,7 @@
 #    By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 17:21:44 by awolschi          #+#    #+#              #
-#    Updated: 2024/10/16 19:50:08 by awolschi         ###   ########.fr        #
+#    Updated: 2024/10/16 20:25:40 by awolschi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,14 @@ SRCS =	ft_atoi.c \
 		ft_memset.c \
 		ft_strchr.c \
 		ft_strdup.c \
+		ft_strjoin.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
 		ft_strncmp.c \
 		ft_strnstr.c \
 		ft_strrchr.c \
+		ft_substr.c \
 		ft_tolower.c \
 		ft_toupper.c \
 

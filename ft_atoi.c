@@ -6,12 +6,16 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:02:43 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/16 17:14:31 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/10/19 19:33:08 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/// @brief Convert a string to an integer.
+/// @param str The string to be converted.
+/// @return The integer value of the string. Returns 0 if the string is not a
+/// valid integer.
 int	ft_atoi(const char *str)
 {
 	int	c;
