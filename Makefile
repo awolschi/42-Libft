@@ -6,7 +6,7 @@
 #    By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 17:21:44 by awolschi          #+#    #+#              #
-#    Updated: 2024/10/16 20:25:40 by awolschi         ###   ########.fr        #
+#    Updated: 2024/10/21 17:02:21 by awolschi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS =	ft_atoi.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
+		ft_itoa.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memcpy.c \
