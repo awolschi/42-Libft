@@ -6,7 +6,7 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 20:29:35 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/21 19:21:16 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/10/21 19:47:10 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,35 +69,6 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-// char	*ft_itoa(int n)
-// {
-// 	char	*str;
-// 	int		len;
-//
-// 	len = ft_intlen(n);
-// 	str = (char *)malloc((len + 1) * sizeof(char));
-// 	if (!str)
-// 		return (NULL);
-// 	str[len] = '\0';
-// 	if (n == 0)
-// 		str[0] = '0';
-// 	if (n == -2147483648)
-// 	{
-// 		str = "-2147483648";
-// 		return (str);
-// 	}
-// 	len += ft_isneg(n);
-// 	if (ft_isneg(n))
-// 		n = -n;
-// 	while (n)
-// 	{
-// 		str[--len] = (n % 10 + '0');
-// 		n /= 10;
-// 	}
-// 	if (ft_isneg(n))
-// 		str[0] = '-';
-// 	return (str);
-// }
 //
 // int	main(void)
 // {
