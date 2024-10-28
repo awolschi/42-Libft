@@ -6,7 +6,7 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:11:46 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/19 19:52:36 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:13:48 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	char	*str;
 
-	start = 0;
 	if (!s1 || !set)
 		return (NULL);
-	while (s1[start] && ft_strchr(set, s1[start]))
+	start = 0;
+	while (s1[start] && ft_strchr((char *)set, s1[start]))
 		start++;
 	end = ft_strlen(s1) - 1;
-	while (end >= start && ft_strchr(set, s1[end]))
+	while (end >= start && ft_strchr((char *)set, s1[end]))
 		end--;
 	str = (char *)malloc(end - start + 2);
 	if (!str)

@@ -6,7 +6,7 @@
 #    By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 17:21:44 by awolschi          #+#    #+#              #
-#    Updated: 2024/10/21 20:08:10 by awolschi         ###   ########.fr        #
+#    Updated: 2024/10/28 18:40:29 by awolschi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,11 @@ SRCS =	ft_atoi.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memset.c \
+		ft_putchar_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
+		ft_putstr_fd.c \
+		ft_split.c \
 		ft_strchr.c \
 		ft_strdup.c \
 		ft_striteri.c \
@@ -41,12 +46,16 @@ SRCS =	ft_atoi.c \
 		ft_strncmp.c \
 		ft_strnstr.c \
 		ft_strrchr.c \
+		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
+BSRCS = ft_lstnew_bonus.c \
+
 OBJ_DIR = obj
 OFILES = $(addprefix obj/, $(SRCS:.c=.o))
+BOFILES = $(addprefix obj/, $(BSRCS:.c=.o))
 
 HEADER = libft.h
 
@@ -55,6 +64,9 @@ all: $(NAME)
 $(NAME): $(OFILES)
 	ar rc $(NAME) $(OFILES)
 
+bonus: $(OBJECTS) $(BOBJECTS)
+	$(AR) -r $(NAME) $?
+
 $(OBJ_DIR)/%.o: %.c $(HEADER) | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
@@ -62,11 +74,11 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR) $(BOFILES)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

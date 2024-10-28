@@ -6,13 +6,16 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 20:29:35 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/21 19:47:10 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/10/28 18:34:35 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdbool.h>
 
+/// @brief Calculates the length of an integer when converted to a string.
+/// @param n The integer to measure.
+/// @return The length of the integer as a string.
 int	ft_intlen(int n)
 {
 	int	len;
@@ -36,14 +39,20 @@ int	ft_intlen(int n)
 	return (len);
 }
 
-int	ft_isneg(int n)
+/// @brief Checks if an integer is negative.
+/// @param n The integer to check.
+/// @return 1 if the integer is negative, 0 otherwise.
+static int	ft_isneg(int n)
 {
 	if (n < 0)
 		return (1);
 	return (0);
 }
 
-char	*ft_itoa(int n)
+/// @brief Converts an integer to a null-terminated string.
+/// @param n The integer to convert.
+/// @return A pointer to the newly allocated string representing the integer.
+static char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
@@ -68,9 +77,3 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
-
-//
-// int	main(void)
-// {
-// 	printf("||%s||", ft_itoa(-1024));
-// }

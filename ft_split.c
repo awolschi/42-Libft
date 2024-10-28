@@ -6,7 +6,7 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:57:04 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/21 17:01:43 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/10/28 18:35:25 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /// @param s The string to be analyzed.
 /// @param c The delimiter character.
 /// @return The number of words in the string.
-int	word_count(char const *s, char c)
+static int	word_count(char const *s, char c)
 {
 	int	words;
 
@@ -38,100 +38,57 @@ int	word_count(char const *s, char c)
 
 /// @brief Allocates memory for a word from a string starting at a given index
 /// and ending at the next occurrence of a delimiter.
-/// @param s The string from which the word will be extracted.
-/// @param start The starting index of the word in the string.
+/// @param s The input string.
+/// @param start The starting index of the word.
 /// @param c The delimiter character.
-/// @return A pointer to the newly allocated word,
-/// or NULL if memory allocation fails.
-char	*malloc_word(char *s, int start, char c)
+/// @return A newly allocated string containing the word.
+static char	*copy_word(char *s, int start, char c)
 {
-	int		end;
+	int		len;
 	char	*word;
-	int		i;
 
-	end = start;
-	while (s[end] && s[end] != c)
-		end++;
-	word = (char *)malloc((end - start + 1) * sizeof(char));
+	len = 0;
+	while (s[start + len] && s[start + len] != c)
+		len++;
+	word = (char *)malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
-	i = 0;
-	while (start < end)
-	{
-		word[i] = s[start];
-		i++;
-		start++;
-	}
-	word[i] = '\0';
-	return (word);
-}
-
-/// @brief Frees the memory allocated for an array of strings.
-/// @param array The array of strings to be freed.
-void	free_array(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-		free(array[i++]);
-	free(array);
-}
-
-/// @brief Copies a word from a string starting at a given index and ending at
-/// the next occurrence of a delimiter.
-/// @param s The string from which the word will be copied.
-/// @param start The starting index of the word in the string.
-/// @param c The delimiter character.
-/// @return A pointer to the newly allocated and copied word,
-///	or NULL if memory allocation fails.
-char	*copy_word(char *s, int start, char c, size_t word_index)
-{
-	int		end;
-	char	*word;
-	int		i;
-
-	end = start;
-	while (s[end] && s[end] != c)
-		end++;
-	word = (char *)malloc((end - start + 1) * sizeof(char));
-	if (!word)
-		return (NULL);
-	i = 0;
-	while (start < end)
-	{
-		word[i] = s[start];
-		i++;
-		start++;
-	}
-	word[i] = '\0';
+	len = 0;
+	while (s[start] && s[start] != c)
+		word[len++] = s[start++];
+	word[len] = '\0';
 	return (word);
 }
 
 /// @brief Splits a string into an array of words separated by a given
 /// delimiter.
-/// @param s The string to be split.
+/// @param s The input string.
 /// @param c The delimiter character.
-/// @return A pointer to an array of strings (words),
-///	or NULL if memory allocation fails.
-char	**ft_split(const char *s, char c)
+/// @return An array of strings, each containing a word from the input string.
+char	**ft_split(char const *s, char c)
 {
-	size_t	words;
-	size_t	word_index;
-	char	**str;
+	char	**result;
+	int		i;
+	int		j;
+	int		start;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	words = word_count(s, c);
-	word_index = 0;
-	str = malloc((words + 1) * sizeof(char *));
-	if (str == NULL)
+	result = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
+	if (!result)
 		return (NULL);
-	str[words] = NULL;
-	if (copy_word(str, s, c, &word_index))
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		free_array(str);
-		return (NULL);
+		while (s[i] && s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+			result[j++] = copy_word((char *)s, start, c);
 	}
-	return (str);
+	result[j] = NULL;
+	return (result);
 }

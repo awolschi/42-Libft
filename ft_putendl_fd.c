@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 15:26:49 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/28 18:35:51 by awolschi         ###   ########.fr       */
+/*   Created: 2024/10/28 15:36:19 by awolschi          #+#    #+#             */
+/*   Updated: 2024/10/28 16:02:37 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/// @brief Convert a lowercase letter to an uppercase letter.
-/// @param c The character to be converted.
-/// @return (The uppercase equivalent of c if c is a lowercase letter);
-/// otherwise, c is returned unchanged.
-int	ft_toupper(int c)
+/// @brief Writes a string followed by a newline to the specified file
+/// descriptor.
+/// @param s The string to write.
+/// @param fd The file descriptor to write to.
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 15:26:49 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/28 18:35:51 by awolschi         ###   ########.fr       */
+/*   Created: 2024/10/28 16:52:34 by awolschi          #+#    #+#             */
+/*   Updated: 2024/10/28 17:17:26 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/// @brief Convert a lowercase letter to an uppercase letter.
-/// @param c The character to be converted.
-/// @return (The uppercase equivalent of c if c is a lowercase letter);
-/// otherwise, c is returned unchanged.
-int	ft_toupper(int c)
+t_list	*ft_lstnew(void *content)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
