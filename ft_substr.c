@@ -6,7 +6,7 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:58:20 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/20 19:48:53 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/11/01 20:14:03 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[i] = '\0';
 	return (substr);
 }
-
-// int	main(void)
-// {
-// 	char	*s;
-// 	char	*substr;
-
-// 	s = "";
-// 	substr = ft_substr(s, 7, 5);
-// 	printf("Test: %s\n", substr);
-// 	free(substr);
-// }
