@@ -6,23 +6,26 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:57:04 by awolschi          #+#    #+#             */
-/*   Updated: 2024/11/01 19:38:36 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/11/01 20:11:28 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// /// @brief Frees a 2D array of strings.
-// /// @param arr The array to be freed.
-// static void	free_split(char **arr)
-// {
-// 	while (*arr)
-// 	{
-// 		free(*arr);
-// 		arr++;
-// 	}
-// 	free(arr);
-// }
+/// @brief Frees a 2D array of strings.
+/// @param arr The array to be freed.
+static void	free_split(char **arr, int len)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i] && i < len)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
 
 /// @brief Counts the number of words in a string separated by a given
 /// delimiter.
@@ -72,23 +75,12 @@ static char	*copy_word(char *s, int start, char c)
 	return (word);
 }
 
-/// @brief Splits a string into an array of words separated by a given
-/// delimiter.
-/// @param s The input string.
-/// @param c The delimiter character.
-/// @return An array of strings, each containing a word from the input string.
-char	**ft_split(char const *s, char c)
+static int	split_string(char const *s, char c, char **result)
 {
-	char	**result;
-	int		i;
-	int		j;
-	int		start;
+	int	i;
+	int	j;
+	int	start;
 
-	if (!s)
-		return (NULL);
-	result = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
-	if (!result)
-		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])
@@ -99,8 +91,34 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] != c)
 			i++;
 		if (i > start)
+		{
 			result[j++] = copy_word((char *)s, start, c);
+			if (!result[j - 1])
+			{
+				free_split(result, j - 1);
+				return (1);
+			}
+		}
 	}
 	result[j] = NULL;
+	return (0);
+}
+
+/// @brief Splits a string into an array of words separated by a given
+/// delimiter.
+/// @param s The input string.
+/// @param c The delimiter character.
+/// @return An array of strings, each containing a word from the input string.
+char	**ft_split(char const *s, char c)
+{
+	char	**result;
+
+	if (!s)
+		return (NULL);
+	result = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
+	if (!result)
+		return (NULL);
+	if (split_string(s, c, result))
+		return (NULL);
 	return (result);
 }
