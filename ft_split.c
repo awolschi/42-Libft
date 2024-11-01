@@ -6,11 +6,23 @@
 /*   By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:57:04 by awolschi          #+#    #+#             */
-/*   Updated: 2024/10/28 18:35:25 by awolschi         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:38:36 by awolschi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// /// @brief Frees a 2D array of strings.
+// /// @param arr The array to be freed.
+// static void	free_split(char **arr)
+// {
+// 	while (*arr)
+// 	{
+// 		free(*arr);
+// 		arr++;
+// 	}
+// 	free(arr);
+// }
 
 /// @brief Counts the number of words in a string separated by a given
 /// delimiter.

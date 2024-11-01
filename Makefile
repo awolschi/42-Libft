@@ -6,7 +6,7 @@
 #    By: awolschi <awolschi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 17:21:44 by awolschi          #+#    #+#              #
-#    Updated: 2024/10/28 18:40:29 by awolschi         ###   ########.fr        #
+#    Updated: 2024/11/01 19:24:18 by awolschi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,15 @@ SRCS =	ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
-BSRCS = ft_lstnew_bonus.c \
+BSRCS = ft_lstadd_back_bonus.c \
+		ft_lstadd_front_bonus.c \
+		ft_lstclear_bonus.c \
+		ft_lstdelone_bonus.c \
+		ft_lstiter_bonus.c \
+		ft_lstlast_bonus.c \
+		ft_lstmap_bonus.c \
+		ft_lstnew_bonus.c \
+		ft_lstsize_bonus.c \
 
 OBJ_DIR = obj
 OFILES = $(addprefix obj/, $(SRCS:.c=.o))
@@ -64,7 +72,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 	ar rc $(NAME) $(OFILES)
 
-bonus: $(OBJECTS) $(BOBJECTS)
+bonus: $(OFILES) $(BOFILES)
 	$(AR) -r $(NAME) $?
 
 $(OBJ_DIR)/%.o: %.c $(HEADER) | $(OBJ_DIR)
